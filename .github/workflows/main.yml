@@ -2,9 +2,9 @@ name: Node.js CI
 
 on:
     push:
-        branches: [web1]
+        branches: [lab1]
     pull_request:
-        branches: [web1]
+        branches: [lab1]
 
 jobs:
     lint:
