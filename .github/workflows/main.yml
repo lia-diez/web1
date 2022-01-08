@@ -1,0 +1,23 @@
+name: Node.js CI
+
+on:
+    push:
+        branches: [web1]
+    pull_request:
+        branches: [web1]
+
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+            - name: Using Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v2
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'npm'
+            - name: Installing dependencies
+              run: npm ci
+            - name: Test
+              run: npm test
